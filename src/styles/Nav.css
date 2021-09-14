@@ -1,0 +1,44 @@
+.nav-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100vw;
+}
+
+.Logo{
+height: 40px;
+width: 120px;
+margin: none;
+padding: 10px;
+
+}
+
+.Menu{
+    padding: 10px;
+    font-size: 2rem;
+    color: white;
+    margin: 3px;
+}
+
+.Menu-List{
+    position: relative;
+    padding: 10px;
+    color: white;
+    list-style: none;
+}
+
+
+.Dropdown{
+    font-size: 1.5rem;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    right: -270px;
+    overflow: hidden;
+}
+
+.Account{
+    text-align: center;
+}
+
