@@ -12,7 +12,7 @@ const Nav = () => {
 
     return (
         <>
-        <div div className="nav-div">
+        <div className="nav-div">
             <img className="Logo" src={Logo} alt="logo"></img>
             <h2 className="Menu" onClick={handleClick}><FaBars /></h2>
             </div>
