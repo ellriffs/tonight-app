@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import '../styles/Nav.css'
 import Logo from '../Assets/tonight-logo.png'
-import {FaBars} from 'react-icons/fa';
+import {FaBars, FaLaptop, FaUser} from 'react-icons/fa';
 
 const Nav = () => {
     const [menu, setMenu] = useState(false)
@@ -20,7 +20,8 @@ const Nav = () => {
             {
                 menu ?
                 <ul className="Dropdown">
-                    <li>Account</li>
+                    <li className="Account"><FaUser /></li>
+                    <li className="Login"><FaLaptop /></li>
                 </ul>
                 :null
             }
