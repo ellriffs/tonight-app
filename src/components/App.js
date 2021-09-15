@@ -1,6 +1,7 @@
 import '../styles/App.css';
-import LandingPage from './landing-page';
+import LandingPage from './landing-page'
 import Nav from './Nav';
+import Search from './Search'
 
 function App() {
   
@@ -8,6 +9,7 @@ function App() {
     <div className="App">
       <Nav />
       <LandingPage />
+      <Search />
     </div>
   );
 }
