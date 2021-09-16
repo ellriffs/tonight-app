@@ -14,35 +14,3 @@
     align-items: center;
     color: white;
 }
-
-.search-form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-}
-
-.search-bar{
-    color: #cb931b;
-    background-color: transparent;
-    border-radius: 30px;
-    text-align: center;
-    font-size: 1rem;
-    width: 19rem;
-    height: 2rem;
-
-}
-
-.submit{
-    background-color: transparent;
-    border-left: none;
-    border-right: none;
-    border-top: 3px double white;
-    border-bottom: 3px double white;
-    color: #cb931b;
-    margin: 20px;
-    border-radius: 30px;
-    font-size: 0.5rem;
-    height: 2.5rem;
-    width: 5rem;
-}
