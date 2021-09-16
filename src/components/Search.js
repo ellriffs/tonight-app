@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../styles/Search.css'
-import '../styles/listings.css'
+import EventCards from './EventCards';
 
-const LandingPage = () => {
+
+const Search = () => {
   const [searchValue, setSearchValue] = useState('');
   const [eventData, setEventData] = useState([]);
 
@@ -20,6 +21,7 @@ const LandingPage = () => {
     setSearchValue(event.target.value);
   };
 
+
   return (
     <div className="landing-page-container">
       <form className="search-form">
@@ -30,28 +32,28 @@ const LandingPage = () => {
           type="text"
           placeholder="Enter Your City Here"
           autoFocus
-        ></input>
+          
+        >
+        </input>
         <button onClick={handleSearch} className="submit" type="button">
           WHATS ON?
         </button>
-      </form>
-      {eventData.map((listing) => {
-        return (
-          <ul className="listings">
-            <li>{listing.name}</li>
-            <div div className="images-align">
-              <img className="images" src={listing.images[4].url} alt="band" />
-            </div>
-            <li>{listing._embedded.venues[0].name} </li>
-            <li>{listing.dates.start.localDate}</li>
-            <li>{listing.dates.start.localTime}</li>
-            <a target="#" href={listing.url}>
+        </form>
+      {eventData.map((listing) => (
+        <div className="event-container">
+          <EventCards 
+            listing={listing.name}
+            image={<img className="images" src={listing.images[8].url} alt="band" />}
+            venue={listing._embedded.venues[0].name}
+            date={listing.dates.start.localDate}
+            time={listing.dates.start.localTime}
+            tickets={<a target="#" href={listing.url}>
               Buy Tickets
-            </a>
-          </ul>
-        );
-      })}
+          </a>}
+          />
+         </div>
+        ))}
     </div>
   );
 };
-export default LandingPage;
+export default Search;

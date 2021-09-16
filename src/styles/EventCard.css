@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
+.eventCards{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 20rem;
+    height: 22rem;
+    box-shadow: 1px 1px 13px 1px white;
+    color:white;
+    font-weight: bold;
+    background: linear-gradient(rgba(235, 146, 12, 0.1), rgba(253, 123, 2, 0.6)), #cb931b;
+    font-family: 'Poiret One';
+    border: 2px solid white;
+    border-radius: 30px;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+.eventCards_images{
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    width: 20rem;
+    height: 19rem;
+}
+
+.eventCards_listing{
+    text-decoration: underline;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    width: 20rem;
+    height: 3rem;
+}
+
+.eventCards_venue{
+    
+
+}
