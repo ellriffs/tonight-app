@@ -23,8 +23,8 @@ const Search = () => {
 
 
   return (
-    <div className="landing-page-container">
-      <form className="search-form">
+        <div className="search-container">
+        <form className="search-form">
         <input
           onChange={handleInputChange}
           value={searchValue}
@@ -39,6 +39,7 @@ const Search = () => {
           WHATS ON?
         </button>
         </form>
+        <div className="event-container-master">
       {eventData.map((listing) => (
         <div className="event-container">
           <EventCards 
@@ -53,6 +54,7 @@ const Search = () => {
           />
          </div>
         ))}
+    </div>
     </div>
   );
 };

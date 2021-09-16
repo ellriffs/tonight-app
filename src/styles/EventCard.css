@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
 
+.event-container-master{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100vw;
+}
+
+
 .eventCards{
     display: flex;
     flex-direction: column;
@@ -30,6 +39,9 @@
 }
 
 .eventCards_listing{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     text-decoration: underline;
     color: white;
     font-weight: bold;
@@ -38,7 +50,22 @@
     height: 3rem;
 }
 
-.eventCards_venue{
+@media (max-width: 375px) {
+    .eventCards{
+        width: 18rem;
+        height: 20rem;
+        font-size: 1rem;
     
+    }
 
+    .eventCards_images{
+        width: 18rem;
+        height: 16rem;
+    }
+
+    .eventCards_listing{
+        width: 18rem;
+        font-size: 1.1rem;
+
+    }
 }
