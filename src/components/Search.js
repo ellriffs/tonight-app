@@ -8,13 +8,12 @@ const Search = () => {
   const [searchValue, setSearchValue] = useState('');
   const [eventData, setEventData] = useState([]);
 
-  const handleSearch = () => {
-    const token = '7elxdku9GGG5k8j0Xm8KWdANDgecHMV0';
-    axios
-      .get(
-        `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${token}&countryCode=GB&city=${searchValue}`
-      )
-      .then((res) => setEventData(res.data._embedded.events));
+  const handleSearch = async () => {
+    const endpoint = `https://gjehejz04g.execute-api.eu-west-2.amazonaws.com/${searchValue}`;
+
+    const response = await axios.get(endpoint)
+
+    setEventData(response.data._embedded.events);
   };
 
   const handleInputChange = (event) => {
