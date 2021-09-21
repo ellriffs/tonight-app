@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
-import '../styles/Search.css'
+import '../styles/Search.css';
 import EventCards from './EventCards';
-
 
 const Search = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -11,7 +10,7 @@ const Search = () => {
   const handleSearch = async () => {
     const endpoint = `https://gjehejz04g.execute-api.eu-west-2.amazonaws.com/${searchValue}`;
 
-    const response = await axios.get(endpoint)
+    const response = await axios.get(endpoint);
 
     setEventData(response.data._embedded.events);
   };
@@ -20,40 +19,38 @@ const Search = () => {
     setSearchValue(event.target.value);
   };
 
-
   return (
-        <div className="search-container">
-        <form className="search-form">
+    <div className="search-container">
+      <form className="search-form">
         <input
           onChange={handleInputChange}
           value={searchValue}
           className="search-bar"
           type="text"
           placeholder="Enter Your City Here"
-          autoFocus
-          
-        >
-        </input>
+        />
         <button onClick={handleSearch} className="submit" type="button">
           WHATS ON?
         </button>
-        </form>
-        <div className="event-container-master">
-      {eventData.map((listing) => (
-        <div className="event-container">
-          <EventCards 
-            listing={listing.name}
-            image={<img className="images" src={listing.images[8].url} alt="band" />}
-            venue={listing._embedded.venues[0].name}
-            date={listing.dates.start.localDate}
-            time={listing.dates.start.localTime}
-            tickets={<a target="#" href={listing.url}>
-              Buy Tickets
-          </a>}
-          />
-         </div>
+      </form>
+      <div className="event-container-master">
+        {eventData.map((listing) => (
+          <div className="event-container">
+            <EventCards
+              listing={listing.name}
+              image={listing.images[8].url}
+              venue={listing._embedded.venues[0].name}
+              date={listing.dates.start.localDate}
+              time={listing.dates.start.localTime}
+              tickets={
+                <a target="#" href={listing.url}>
+                  Buy Tickets
+                </a>
+              }
+            />
+          </div>
         ))}
-    </div>
+      </div>
     </div>
   );
 };
