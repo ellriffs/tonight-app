@@ -8,7 +8,7 @@
 .Logo{
     display: flex;
     flex-direction: row;
-    height: 60px;
+    height: 55px;
     width: 170px;
     margin: none;
     padding: 20px;
@@ -24,25 +24,47 @@
 }
 
 .Menu-List{
-    padding: 10px;
+    margin: -20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100vw;
+    position: absolute;
     color: white;
     list-style: none;
+  
 }
 
 
 .Dropdown{
-    font-size: 1.5rem;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    text-align: right;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    width: 6rem;
+    height: 7rem;
+    font-size: 1rem;
     list-style: none;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-evenly;
-    right: -270px;
-    overflow: hidden;
+   
 }
 
 .Account{
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
+
+.Login{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+
 
 @media (max-width: 375px){
     .Logo{

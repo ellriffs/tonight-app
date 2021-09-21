@@ -22,10 +22,10 @@ const Nav = () => {
         {menu ? (
           <ul className='Dropdown'>
             <li className='Account'>
-              <FaUser />
+              Account<FaUser />
             </li>
             <li className='Login'>
-              <FaLaptop />
+              Login<FaLaptop />
             </li>
           </ul>
         ) : null
