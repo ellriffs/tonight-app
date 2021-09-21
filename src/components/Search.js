@@ -4,15 +4,34 @@ import '../styles/Search.css';
 import EventCards from './EventCards';
 
 const Search = () => {
+  const [select, setSelect] = useState("")
   const [searchValue, setSearchValue] = useState('');
   const [eventData, setEventData] = useState([]);
 
+  const handleSelect = (event) => {
+    setSelect(event.target.value)
+    console.log(select)
+    }
+  
+
   const handleSearch = async () => {
-    const endpoint = `https://gjehejz04g.execute-api.eu-west-2.amazonaws.com/${searchValue}`;
+  if(select === "City") {
+  const endpoint = `https://gjehejz04g.execute-api.eu-west-2.amazonaws.com/${searchValue}`;
+  const response = await axios.get(endpoint)
+  setEventData(response.data._embedded.events);
+
+
+  } else if (select === "Postcode") {
+    const postalCode = searchValue
+    const token = "7elxdku9GGG5k8j0Xm8KWdANDgecHMV0"
+    axios.get(`https://app.ticketmaster.com/discovery/v2/events?apikey=${token}&postalCode=${postalCode}&locale=*&countryCode=*`)
+      .then((res) => setEventData(res.data._embedded.events))
+  }
 
     const response = await axios.get(endpoint);
 
-    setEventData(response.data._embedded.events);
+
+  
   };
 
   const handleInputChange = (event) => {
@@ -27,8 +46,20 @@ const Search = () => {
           value={searchValue}
           className="search-bar"
           type="text"
-          placeholder="Enter Your City Here"
+ Menu-style
+          placeholder="Enter your Search Here"
+          autoFocus
+          >
+        </input>
+        <select onChange={handleSelect} className="select-box">
+          <option selected disabled hidden>Search By...</option>
+          <option  value="City">City</option>
+          <option value="Postcode">Postcode</option>
+          </select>
+
+       
         />
+
         <button onClick={handleSearch} className="submit" type="button">
           WHATS ON?
         </button>
@@ -54,4 +85,5 @@ const Search = () => {
     </div>
   );
 };
+
 export default Search;

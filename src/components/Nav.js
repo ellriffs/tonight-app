@@ -28,12 +28,15 @@ const Nav = () => {
       </div>
       <div className="Menu-List">
         {menu ? (
-          <ul className="Dropdown">
-            <li className="Account">
-              <FaUser />
+   
+           <ul className='Dropdown'>
+            <li className='Account'>
+              Account<FaUser />
             </li>
-            <li className="Login">
-              <FaLaptop />
+            <li className='Login'>
+              Login<FaLaptop />
+
+
             </li>
           </ul>
         ) : null}

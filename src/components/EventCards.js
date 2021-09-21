@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 const EventCards = ({ listing, image, venue, date, time, tickets }) => {
   return (
     <div className="eventCards">
+
       <div className="eventCards_listing">{listing}</div>
       <img className="images" src={image} alt="" />
       <div className="eventCards_venue">{venue}</div>
