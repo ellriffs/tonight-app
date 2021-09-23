@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import '../styles/Search.css'
 import EventCards from './EventCards';
@@ -5,10 +6,13 @@ import EventCards from './EventCards';
 const Search = ({ handleSearch, eventData }) => {
   const [searchValue, setSearchValue] = useState('');
 
+
   const handleInputChange = (event) => {
     setSearchValue(event.target.value);
   };
+
   console.log(eventData);
+
   return (
     <div className="search-container">
       <form className="search-form">
@@ -17,14 +21,18 @@ const Search = ({ handleSearch, eventData }) => {
           value={searchValue}
           className="search-bar"
           type="text"
-          placeholder="Enter Your City Here"
+ Menu-style
+          placeholder="Enter your Search Here"
           autoFocus
+
         />
         <button onClick={() => handleSearch(searchValue)} className="submit" type="button">
+
           WHATS ON?
         </button>
       </form>
       <div className="event-container-master">
+
         { eventData.map((listing) => (
             <div className="event-container">
               <EventCards 
@@ -40,8 +48,10 @@ const Search = ({ handleSearch, eventData }) => {
           </div>
           ))
         }
+
       </div>
     </div>
   );
 };
+
 export default Search;

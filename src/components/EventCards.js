@@ -1,11 +1,14 @@
+
 import React from "react";
 import '../styles/EventCard.css';
 import Popup from "./PopupCard";
 
 const EventCards = ({ listing, image, venue, address, date, time, tickets, location }) => {
+
+
   return (
-     
     <div className="eventCards">
+
             <div className="eventCards_listing">{listing}</div>
             <div className="eventCards_images">{image}</div>
             <div className="eventCards_venue">{venue}</div>
@@ -22,9 +25,18 @@ const EventCards = ({ listing, image, venue, address, date, time, tickets, locat
                 location={location}
               />
             </ button>
+
     </div>
-   
   );
-}
+};
+
+EventCards.propTypes = {
+  listing: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  venue: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  time: PropTypes.string.isRequired,
+  tickets: PropTypes.string.isRequired
+};
 
 export default EventCards;
