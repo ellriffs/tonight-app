@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
-<<<<<<< HEAD
 import PropTypes from 'prop-types';
 import '../styles/Search.css'
-=======
-import '../styles/Search.css';
->>>>>>> 3f8f9acd70d57d6cfcd6a82b93ec65ca2ef27741
 import EventCards from './EventCards';
 
 const Search = ({ handleSearch, eventData, setSelect }) => {
@@ -14,16 +10,6 @@ const Search = ({ handleSearch, eventData, setSelect }) => {
     setSearchValue(event.target.value);
   };
 
-<<<<<<< HEAD
-=======
-  const handleSelect = (event) => {
-    setSelect(event.target.value);
-  };
-
-  // eslint-disable-next-line no-console
-  // console.log(eventData);
-
->>>>>>> 3f8f9acd70d57d6cfcd6a82b93ec65ca2ef27741
   return (
     <div className="search-container">
       <form className="search-form">

@@ -1,10 +1,6 @@
 import React from 'react';
-<<<<<<< HEAD
 import PropTypes from 'prop-types';
 import "../styles/MapView.css";
-=======
-import '../styles/MapView.css';
->>>>>>> 3f8f9acd70d57d6cfcd6a82b93ec65ca2ef27741
 import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
 
 const containerStyle = {
@@ -35,11 +31,8 @@ const MapView = ({ location, listing }) => {
 };
 
 export default MapView;
-<<<<<<< HEAD
 
 MapView.propTypes= {
   listing: PropTypes.string.isRequired,
   location: PropTypes.objectOf (PropTypes.number).isRequired
 };
-=======
->>>>>>> 3f8f9acd70d57d6cfcd6a82b93ec65ca2ef27741
