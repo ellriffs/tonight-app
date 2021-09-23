@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import '../styles/Search.css'
+import '../styles/Search.css';
 import EventCards from './EventCards';
 
 const Search = ({ handleSearch, eventData, setSelect }) => {
@@ -8,6 +8,10 @@ const Search = ({ handleSearch, eventData, setSelect }) => {
 
   const handleInputChange = (event) => {
     setSearchValue(event.target.value);
+  };
+
+  const handleSelect = (event) => {
+    setSelect(event.target.value);
   };
 
   return (
@@ -74,5 +78,6 @@ Search.propTypes = {
     PropTypes.number,
     PropTypes.objectOf(PropTypes.number),
     PropTypes.objectOf(PropTypes.number)
-  ]).isRequired
+  ]).isRequired,
+  setSelect: PropTypes.func.isRequired
 };
