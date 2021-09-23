@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import '../styles/Search.css';
 import EventCards from './EventCards';
 
@@ -12,9 +13,6 @@ const Search = ({ handleSearch, eventData, setSelect }) => {
   const handleSelect = (event) => {
     setSelect(event.target.value);
   };
-
-  // eslint-disable-next-line no-console
-  // console.log(eventData);
 
   return (
     <div className="search-container">
@@ -72,3 +70,14 @@ const Search = ({ handleSearch, eventData, setSelect }) => {
 };
 
 export default Search;
+
+Search.propTypes = {
+  handleSearch: PropTypes.func.isRequired,
+  eventData: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.objectOf(PropTypes.number),
+    PropTypes.objectOf(PropTypes.number)
+  ]).isRequired,
+  setSelect: PropTypes.func.isRequired
+};
