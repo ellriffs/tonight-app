@@ -1,7 +1,8 @@
 
 import React from "react";
+import PropTypes from "prop-types";
 import '../styles/EventCard.css';
-import Popup from "./PopupCard";
+import PopupCard from "./PopupCard";
 
 const EventCards = ({ listing, image, venue, address, date, time, tickets, location }) => {
 
@@ -15,7 +16,7 @@ const EventCards = ({ listing, image, venue, address, date, time, tickets, locat
             <div className="eventCards_date">{date}</div>
             <div className="eventCards_time">{time}</div>
             <button className="eventCards_button">
-              <Popup 
+              <PopupCard 
                 listing={listing}
                 ticket={tickets}
                 date={date}
@@ -36,7 +37,9 @@ EventCards.propTypes = {
   venue: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   time: PropTypes.string.isRequired,
-  tickets: PropTypes.string.isRequired
+  tickets: PropTypes.string.isRequired,
+  location: PropTypes.objectOf (PropTypes.number).isRequired,
+  address: PropTypes.objectOf (PropTypes.string).isRequired
 };
 
 export default EventCards;

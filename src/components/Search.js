@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import '../styles/Search.css'
 import EventCards from './EventCards';
 
@@ -10,8 +11,6 @@ const Search = ({ handleSearch, eventData }) => {
   const handleInputChange = (event) => {
     setSearchValue(event.target.value);
   };
-
-  console.log(eventData);
 
   return (
     <div className="search-container">
@@ -55,3 +54,13 @@ const Search = ({ handleSearch, eventData }) => {
 };
 
 export default Search;
+
+Search.propTypes = {
+  handleSearch: PropTypes.func.isRequired,
+  eventData: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.objectOf(PropTypes.number),
+    PropTypes.objectOf(PropTypes.number)
+  ]).isRequired
+};
