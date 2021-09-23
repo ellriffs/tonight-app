@@ -1,7 +1,8 @@
 import React from "react";
-import '../styles/EventCard.css'
+import '../styles/EventCard.css';
+import Popup from "./PopupCard";
 
-const EventCards = ({ listing,image, venue, date, time, tickets }) => {
+const EventCards = ({ listing, image, venue, address, date, time, tickets, location }) => {
   return (
      
     <div className="eventCards">
@@ -10,7 +11,17 @@ const EventCards = ({ listing,image, venue, date, time, tickets }) => {
             <div className="eventCards_venue">{venue}</div>
             <div className="eventCards_date">{date}</div>
             <div className="eventCards_time">{time}</div>
-            <div className="eventCards_tickets">{tickets}</div>
+            <button className="eventCards_button">
+              <Popup 
+                listing={listing}
+                ticket={tickets}
+                date={date}
+                time={time}
+                venue={venue}
+                address={address}
+                location={location}
+              />
+            </ button>
     </div>
    
   );

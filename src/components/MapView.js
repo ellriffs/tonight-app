@@ -7,36 +7,26 @@ const containerStyle = {
   height: '300px'
 };
 
-const MapView = ({ eventData }) => {
+const MapView = ({ location, listing }) => {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: "AIzaSyBpKOgwMtEawFSofGW2rbGBgA3krFg5-p0"
   })
 
-  const defaultCenter = {
-    lat: parseFloat(eventData[0]._embedded.venues[0].location.latitude), 
-    lng: parseFloat(eventData[0]._embedded.venues[0].location.longitude)
+  const center = {
+    lat: parseFloat(location.latitude), 
+    lng: parseFloat(location.longitude)
   };
 
   return isLoaded ? (
-      <div className="map-view">
+    <div className="map-view">
         <GoogleMap
           mapContainerStyle={containerStyle}
           zoom={12}
-          center={defaultCenter}>
-         {
-            eventData.map(item => {
-              const location = {
-                lat: parseFloat(item._embedded.venues[0].location.latitude), 
-                lng: parseFloat(item._embedded.venues[0].location.longitude)}
-              return (
-        
-              <Marker key={item.name} position={location}/>
-              )
-            })
-         }
-     </GoogleMap>
-      </div>
+          center={center}>
+              <Marker key={listing} position={center}/>
+      </GoogleMap>
+    </div>
   ) : <></>
 }
 

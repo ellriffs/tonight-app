@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/Search.css'
 import EventCards from './EventCards';
-import MapView from "./MapView";
 
 const Search = ({ handleSearch, eventData }) => {
   const [searchValue, setSearchValue] = useState('');
@@ -26,20 +25,17 @@ const Search = ({ handleSearch, eventData }) => {
         </button>
       </form>
       <div className="event-container-master">
-        { eventData.length && 
-            <MapView 
-              eventData={eventData}
-            />
-        }
         { eventData.map((listing) => (
             <div className="event-container">
               <EventCards 
                 listing={listing.name}
                 image={<img className="images" src={listing.images[8].url} alt="band" />}
                 venue={listing._embedded.venues[0].name}
+                address={listing._embedded.venues[0]}
                 date={listing.dates.start.localDate}
                 time={listing.dates.start.localTime}
                 tickets={<a target="#" href={listing.url}>Buy Tickets</a>}
+                location={listing._embedded.venues[0].location}
               />
           </div>
           ))
