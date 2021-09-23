@@ -1,17 +1,22 @@
 import React from 'react';
 import Popup from 'reactjs-popup';
 import MapView from './MapView';
-import "../styles/PopupCard.css";
+import '../styles/PopupCard.css';
 
 export default ({ listing, date, time, venue, address, ticket, location }) => (
   <Popup
-    trigger={<button className="trigger-button"> More Info </button>}
+    trigger={
+      <button type="button" className="trigger-button">
+        {' '}
+        More Info{' '}
+      </button>
+    }
     modal
     nested
   >
-    {close => (
+    {(close) => (
       <div className="popup">
-        <button className="close" onClick={close}>
+        <button type="button" className="close" onClick={close}>
           &times;
         </button>
         <div className="header"> {listing} </div>
@@ -19,17 +24,26 @@ export default ({ listing, date, time, venue, address, ticket, location }) => (
           <p>Date: {date}</p>
           <p>Time Start: {time}</p>
           <p>Venue: {venue}</p>
-          <p>Address: {address.address.line1}, {address.city.name} {address.postalCode}</p>
-          
-         {address.accessibleSeatingDetail !== undefined
-           ? `Accessibility: ${address.accessibleSeatingDetail}`
-           : "Accessibility: Apologies, no accessibility information"}
+          <p>
+            Address: {address.address.line1}, {address.city.name}{' '}
+            {address.postalCode}
+          </p>
 
-          <div className="buy-tickets">{ticket}</div>   
+          {address.accessibleSeatingDetail !== undefined
+            ? `Accessibility: ${address.accessibleSeatingDetail}`
+            : 'Accessibility: Apologies, no accessibility information'}
+
+          <div className="buy-tickets">{ticket}</div>
           {location && <MapView location={location} listing={listing} />}
         </div>
         <div className="actions">
-          <button className="close-button" onClick={() => {close()}}>
+          <button
+            type="button"
+            className="close-button"
+            onClick={() => {
+              close();
+            }}
+          >
             close
           </button>
         </div>
