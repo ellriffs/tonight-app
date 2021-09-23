@@ -4,6 +4,10 @@ import '../styles/Search.css';
 import EventCards from './EventCards';
 
 const Search = () => {
+  const today = new Date();
+  const Year = today.getFullYear();
+  const day = today.getDate();
+  const month = today.getMonth() + 1;
   const [select, setSelect] = useState('');
   const [searchValue, setSearchValue] = useState('');
   const [eventData, setEventData] = useState([]);
@@ -18,7 +22,7 @@ const Search = () => {
       const response = await axios.get(endpoint);
       setEventData(response.data._embedded.events);
     } else if (select === 'Tonight') {
-      const endpoint = `https://gjehejz04g.execute-api.eu-west-2.amazonaws.com/${searchValue}&startDateTime=2021-09-22T00:00:00Z&endDateTime=2021-09-22T23:58:00Z`;
+      const endpoint = `https://gjehejz04g.execute-api.eu-west-2.amazonaws.com/${searchValue}&startDateTime=${Year}-${month}-${day}T00:00:00Z&endDateTime=${Year}-${month}-${day}T23:59:00Z`;
       const response = await axios.get(endpoint);
       setEventData(response.data._embedded.events);
     }
