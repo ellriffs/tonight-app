@@ -29,7 +29,7 @@ export default ({ listing, date, time, venue, address, ticket, location }) => (
 
           <div className="buy-tickets">{ticket}</div>
         
-          <MapView location={location} listing={listing} />
+          {location && <MapView location={location} listing={listing} />}
         </div>
 
         <div className="actions">
