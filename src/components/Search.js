@@ -1,17 +1,29 @@
-
 import React, { useState } from 'react';
+<<<<<<< HEAD
 import PropTypes from 'prop-types';
 import '../styles/Search.css'
+=======
+import '../styles/Search.css';
+>>>>>>> 3f8f9acd70d57d6cfcd6a82b93ec65ca2ef27741
 import EventCards from './EventCards';
 
-const Search = ({ handleSearch, eventData }) => {
+const Search = ({ handleSearch, eventData, setSelect }) => {
   const [searchValue, setSearchValue] = useState('');
-
 
   const handleInputChange = (event) => {
     setSearchValue(event.target.value);
   };
 
+<<<<<<< HEAD
+=======
+  const handleSelect = (event) => {
+    setSelect(event.target.value);
+  };
+
+  // eslint-disable-next-line no-console
+  // console.log(eventData);
+
+>>>>>>> 3f8f9acd70d57d6cfcd6a82b93ec65ca2ef27741
   return (
     <div className="search-container">
       <form className="search-form">
@@ -20,34 +32,48 @@ const Search = ({ handleSearch, eventData }) => {
           value={searchValue}
           className="search-bar"
           type="text"
- Menu-style
           placeholder="Enter your Search Here"
-          autoFocus
-
         />
-        <button onClick={() => handleSearch(searchValue)} className="submit" type="button">
-
+        <select onChange={handleSelect} className="select-box">
+          <option selected disabled hidden>
+            Search By...
+          </option>
+          <option value="Tonight">Tonight</option>
+          <option value="FutureEvents"> Get Future Events </option>
+        </select>
+        <button
+          onClick={() => handleSearch(searchValue)}
+          className="submit"
+          type="button"
+        >
           WHATS ON?
         </button>
       </form>
       <div className="event-container-master">
-
-        { eventData.map((listing) => (
-            <div className="event-container">
-              <EventCards 
-                listing={listing.name}
-                image={<img className="images" src={listing.images[8].url} alt="band" />}
-                venue={listing._embedded.venues[0].name}
-                address={listing._embedded.venues[0]}
-                date={listing.dates.start.localDate}
-                time={listing.dates.start.localTime}
-                tickets={<a target="#" href={listing.url}>Buy Tickets</a>}
-                location={listing._embedded.venues[0].location}
-              />
+        {eventData.map((listing) => (
+          <div className="event-container">
+            <EventCards
+              listing={listing.name}
+              image={
+                <img
+                  className="images"
+                  src={listing.images[8].url}
+                  alt="band"
+                />
+              }
+              venue={listing._embedded.venues[0].name}
+              address={listing._embedded.venues[0]}
+              date={listing.dates.start.localDate}
+              time={listing.dates.start.localTime}
+              tickets={
+                <a target="#" href={listing.url}>
+                  Buy Tickets
+                </a>
+              }
+              location={listing._embedded.venues[0].location}
+            />
           </div>
-          ))
-        }
-
+        ))}
       </div>
     </div>
   );
