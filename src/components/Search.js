@@ -20,6 +20,13 @@ const Search = ({ handleSearch, eventData, setSelect }) => {
         <input
           onChange={handleInputChange}
           value={searchValue}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              e.preventDefault();
+              handleSearch(searchValue);
+              setSearchValue('');
+            }
+          }}
           className="search-bar"
           type="text"
           placeholder="Enter your Search Here"
