@@ -1,15 +1,36 @@
-import '../styles/EventCard.css';
+import React from 'react';
 import PropTypes from 'prop-types';
+import '../styles/EventCard.css';
+import PopupCard from './PopupCard';
 
-const EventCards = ({ listing, image, venue, date, time, tickets }) => {
+const EventCards = ({
+  listing,
+  image,
+  venue,
+  address,
+  date,
+  time,
+  tickets,
+  location
+}) => {
   return (
     <div className="eventCards">
       <div className="eventCards_listing">{listing}</div>
-      <img className="images" src={image} alt="" />
+      <div className="eventCards_images">{image}</div>
       <div className="eventCards_venue">{venue}</div>
       <div className="eventCards_date">{date}</div>
       <div className="eventCards_time">{time}</div>
-      <div className="eventCards_tickets">{tickets}</div>
+      <button className="eventCards_button" type="button">
+        <PopupCard
+          listing={listing}
+          ticket={tickets}
+          date={date}
+          time={time}
+          venue={venue}
+          address={address}
+          location={location}
+        />
+      </button>
     </div>
   );
 };
@@ -20,7 +41,9 @@ EventCards.propTypes = {
   venue: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   time: PropTypes.string.isRequired,
-  tickets: PropTypes.string.isRequired
+  tickets: PropTypes.string.isRequired,
+  location: PropTypes.objectOf(PropTypes.number).isRequired,
+  address: PropTypes.objectOf(PropTypes.string).isRequired
 };
 
 export default EventCards;

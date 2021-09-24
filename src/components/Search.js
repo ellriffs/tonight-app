@@ -1,22 +1,17 @@
-import { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import '../styles/Search.css';
 import EventCards from './EventCards';
 
-const Search = () => {
+const Search = ({ handleSearch, eventData, setSelect }) => {
   const [searchValue, setSearchValue] = useState('');
-  const [eventData, setEventData] = useState([]);
-
-  const handleSearch = async () => {
-    const endpoint = `https://gjehejz04g.execute-api.eu-west-2.amazonaws.com/${searchValue}`;
-
-    const response = await axios.get(endpoint);
-
-    setEventData(response.data._embedded.events);
-  };
 
   const handleInputChange = (event) => {
     setSearchValue(event.target.value);
+  };
+
+  const handleSelect = (event) => {
+    setSelect(event.target.value);
   };
 
   return (
@@ -28,19 +23,23 @@ const Search = () => {
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
               e.preventDefault();
-              handleSearch();
+              handleSearch(searchValue);
               setSearchValue('');
             }
           }}
           className="search-bar"
           type="text"
-          placeholder="Enter Your City Here"
+          placeholder="Enter your Search Here"
         />
+        <select onChange={handleSelect} className="select-box">
+          <option selected disabled hidden>
+            Search By...
+          </option>
+          <option value="Tonight">Tonight</option>
+          <option value="FutureEvents"> Get Future Events </option>
+        </select>
         <button
-          onClick={() => {
-            handleSearch();
-            setSearchValue('');
-          }}
+          onClick={() => handleSearch(searchValue)}
           className="submit"
           type="button"
         >
@@ -52,8 +51,15 @@ const Search = () => {
           <div className="event-container">
             <EventCards
               listing={listing.name}
-              image={listing.images[8].url}
+              image={
+                <img
+                  className="images"
+                  src={listing.images[8].url}
+                  alt="band"
+                />
+              }
               venue={listing._embedded.venues[0].name}
+              address={listing._embedded.venues[0]}
               date={listing.dates.start.localDate}
               time={listing.dates.start.localTime}
               tickets={
@@ -61,6 +67,7 @@ const Search = () => {
                   Buy Tickets
                 </a>
               }
+              location={listing._embedded.venues[0].location}
             />
           </div>
         ))}
@@ -68,4 +75,16 @@ const Search = () => {
     </div>
   );
 };
+
 export default Search;
+
+Search.propTypes = {
+  handleSearch: PropTypes.func.isRequired,
+  eventData: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.objectOf(PropTypes.number),
+    PropTypes.objectOf(PropTypes.number)
+  ]).isRequired,
+  setSelect: PropTypes.func.isRequired
+};

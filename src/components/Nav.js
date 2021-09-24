@@ -30,9 +30,11 @@ const Nav = () => {
         {menu ? (
           <ul className="Dropdown">
             <li className="Account">
+              Account
               <FaUser />
             </li>
             <li className="Login">
+              Login
               <FaLaptop />
             </li>
           </ul>
