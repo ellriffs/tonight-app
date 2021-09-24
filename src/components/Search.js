@@ -25,11 +25,25 @@ const Search = () => {
         <input
           onChange={handleInputChange}
           value={searchValue}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              e.preventDefault();
+              handleSearch();
+              setSearchValue('');
+            }
+          }}
           className="search-bar"
           type="text"
           placeholder="Enter Your City Here"
         />
-        <button onClick={handleSearch} className="submit" type="button">
+        <button
+          onClick={() => {
+            handleSearch();
+            setSearchValue('');
+          }}
+          className="submit"
+          type="button"
+        >
           WHATS ON?
         </button>
       </form>
