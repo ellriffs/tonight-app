@@ -1,19 +1,48 @@
-.popup {
-  font-size: 12px;
-  background-color: white;
-  padding: 30px;
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
+.trigger-button{
+  background: none;
+  border-top: 2px double white;
+  border-bottom: 2px double white;
+  border-left: none;
+  border-right: none;
+  border-radius: 32px;
+  color: wheat;
+  text-shadow: 0.1px 1px 1px black;
 }
+.popup {
+  border: 3px solid white;
+  box-shadow: 0px 0px 100px black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 12px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2)), #000000;
+  padding: 30px;
+  width: 70vw;
+  height: 85vh;
+  border-radius: 32px;
+  color: white;
+  font-weight: bold;
+}
+
 .popup > .header {
   width: 100%;
   border-bottom: 1px solid gray;
   font-size: 18px;
   text-align: center;
   padding: 5px;
+  font-family:'Poiret One' ;
 }
 .popup > .content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
   width: 100%;
   padding: 10px 5px;
 }
+
 .popup > .actions {
   width: 100%;
   padding: 10px 5px;
@@ -37,4 +66,17 @@
 .popup > .content > .buy-tickets {
   text-align: center;
   padding: 10px;
+  color: white;
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+
+.trigger-button:hover{
+  opacity: 0.7;
+}
+
+.buy-tickets:link{
+  text-decoration: none;
+  color: white;
 }

@@ -4,8 +4,8 @@ import '../styles/MapView.css';
 import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
 
 const containerStyle = {
-  width: '300px',
-  height: '300px'
+  width: '70vw',
+  height: '40vh'
 };
 
 const MapView = ({ location, listing }) => {

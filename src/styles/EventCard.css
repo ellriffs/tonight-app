@@ -13,8 +13,9 @@
     display: flex;
     flex-direction: column;
     align-content: center;
+    justify-content: space-evenly;
     width: 20rem;
-    height: 22rem;
+    height: 30rem;
     box-shadow: 1px 1px 13px 1px white;
     color:white;
     font-weight: bold;
@@ -39,6 +40,7 @@
 }
 
 .eventCards_listing{
+    margin: 2px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -49,6 +51,14 @@
     width: 20rem;
     height: 3rem;
 }
+
+.eventCards_button{
+    margin: 5px;
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
 
 @media (max-width: 375px) {
     .eventCards{
