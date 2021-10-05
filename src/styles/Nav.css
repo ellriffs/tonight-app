@@ -1,7 +1,9 @@
 .nav-div{
+    align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+ 
     width: 100vw;
 }
 
@@ -12,57 +14,60 @@
     width: 170px;
     margin: none;
     padding: 20px;
+    font-size: 2rem;
 
 }
 
 .Menu{
     padding: 20px;
     font-size: 2rem;
-    color: white;
     margin: 3px;
    
 }
 
-.Menu-List{
-    margin: -20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    width: 100vw;
-    position: absolute;
-    color: white;
-    list-style: none;
-  
-}
-
-
-.Dropdown{
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
-    text-align: right;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    width: 6rem;
-    height: 7rem;
-    font-size: 1rem;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-   
-}
-
-.Account{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-
 .Login{
+    background: transparent;
+    border: none;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    align-items: center;
+    width: 200px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    color: #cb931b;
+    font-size: 1.7rem;
+    font-weight: 200;
 }
+
+.Login:hover{
+    text-decoration: underline;
+    color: red;
+    cursor:pointer;
+}
+
+
+.Logout{
+    background: transparent;
+    align-items: center;
+    border: none;
+    justify-content: space-evenly;
+    width: 210px;
+    padding: 40px;
+    display: flex;
+    flex-direction: row;
+    color: #cb931b;
+    font-size: 1.7rem;
+    font-weight: 200;
+}
+
+.Logout:hover{
+    text-decoration: underline;
+    color: red;
+    cursor:pointer;
+}
+
 
 
 
@@ -72,8 +77,18 @@
         flex-direction: row;
         height: 40px;
         width: 120px;
-       
-    
     }
+
+    .Login{
+        font-size: 1rem;
+        width: 30vw;
+    }
+
+    .Logout{
+        font-size: 1rem;
+        width: 41vw;
+    }
+
+
+
 }
- 

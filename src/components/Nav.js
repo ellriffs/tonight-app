@@ -1,46 +1,28 @@
-import { useState } from 'react';
+import React from 'react';
 import '../styles/Nav.css';
-import { FaBars, FaLaptop, FaUser } from 'react-icons/fa';
+import { useAuth0 } from '@auth0/auth0-react';
+import { FaLaptop } from 'react-icons/fa';
 import Logo from '../Assets/tonight-logo.png';
 
 const Nav = () => {
-  const [menu, setMenu] = useState(false);
-
-  const handleClick = () => {
-    setMenu(!menu);
-  };
+  const { loginWithRedirect, logout, user, isLoading } = useAuth0();
 
   return (
-    <>
-      <div className="nav-div">
-        <img className="Logo" src={Logo} alt="logo" />
-        <h2
-          className="Menu"
-          onClick={handleClick}
-          onKeyDown={(e) => {
-            if (e.key === 'Space') {
-              handleClick();
-            }
-          }}
-        >
-          <FaBars />
-        </h2>
-      </div>
-      <div className="Menu-List">
-        {menu ? (
-          <ul className="Dropdown">
-            <li className="Account">
-              Account
-              <FaUser />
-            </li>
-            <li className="Login">
-              Login
-              <FaLaptop />
-            </li>
-          </ul>
-        ) : null}
-      </div>
-    </>
+    <div className="nav-div">
+      <img className="Logo" src={Logo} alt="logo" />
+      {!isLoading && !user && (
+        <button type="button" className="Login" onClick={loginWithRedirect}>
+          <FaLaptop /> Login
+        </button>
+      )}
+      {!isLoading && user && (
+        <>
+          <button type="button" className="Logout" onClick={() => logout()}>
+            <FaLaptop /> Logout
+          </button>
+        </>
+      )}
+    </div>
   );
 };
 
