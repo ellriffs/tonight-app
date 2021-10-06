@@ -1,3 +1,8 @@
+.search-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .search-form{
     display: flex;
     flex-direction: column;
@@ -62,3 +67,37 @@
     font-size: 1.2rem;
     line-height: -20px;
 }
+
+.toContinue{
+    color:  #cb931b ;
+    text-align: center;
+    font-weight: 100;
+    text-transform: uppercase;
+    text-decoration:underline;
+    text-decoration-thickness:1px;
+    font-style: italic;
+    color: #fff;
+    animation: flicker 1.5s infinite alternate;
+}
+
+@keyframes flicker{
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+
+        text-shadow:
+        0 0 4px #fff,
+        0 0 11px #fff,
+        0 0 19px #fff,
+        0 0 40px #cb931b,
+        0 0 80px #cb931b,
+        0 0 90px #cb931b,
+        0 0 100px  #cb931b,
+        0 0 150px  #cb931b;
+    }
+        10%, 14%, 20%, 23%, 40% {        
+        text-shadow: none;
+        opacity: 0.4;
+    }    
+    
+  }
+  
+  

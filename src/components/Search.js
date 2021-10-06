@@ -17,9 +17,12 @@ const Search = ({ handleSearch, eventData, setSelect }) => {
   };
 
   return (
-    <>
+    <div className="search-container">
+      {!isAuthenticated && !user && (
+        <h1 className="toContinue">Please Login or Signup to continue</h1>
+      )}
       {isAuthenticated && (
-        <div className="search-container">
+        <>
           <form className="search-form">
             <input
               onChange={handleInputChange}
@@ -77,9 +80,9 @@ const Search = ({ handleSearch, eventData, setSelect }) => {
               </div>
             ))}
           </div>
-        </div>
+        </>
       )}
-    </>
+    </div>
   );
 };
 
