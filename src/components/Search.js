@@ -49,7 +49,7 @@ const Search = ({ handleSearch, eventData, setSelect }) => {
             >
               WHATS ON?
             </button>
-            <p className="userName">Welcome: {user.name}</p>
+            <p className="userName">Welcome: {user.nickname}</p>
           </form>
           <div className="event-container-master">
             {eventData.map((listing) => (
