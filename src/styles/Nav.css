@@ -1,20 +1,25 @@
 .nav-div{
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  display: grid;
+  grid-template-columns: 17vw auto  10vw 10vw;
+  grid-template-rows: 12vh;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.3);
  
     width: 100vw;
 }
 
 .Logo{
+    object-fit: contain;
+    grid-column-start: 1;
+    grid-column-end: 2;
     display: flex;
     flex-direction: row;
-    height: 55px;
-    width: 170px;
+    justify-content: center;
+    height: 50%;
+    width: 100%;
     margin: none;
-    padding: 20px;
-    font-size: 2rem;
+    padding: 5px;
 
 }
 
@@ -26,18 +31,16 @@
 }
 
 .Login{
+    grid-column-start: 4;
+    grid-column-end: 5;
     background: transparent;
     border: none;
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 200px;
-    padding: 20px;
-    display: flex;
+    justify-content: center;
+    width: 100%;
     flex-direction: row;
     color: #cb931b;
-    font-size: 1.7rem;
+    font-size: 1.2rem;
     font-weight: 200;
 }
 
@@ -49,16 +52,13 @@
 
 
 .Logout{
+    grid-column-start: 4;
+    grid-column-end: 5;
     background: transparent;
-    align-items: center;
     border: none;
-    justify-content: space-evenly;
-    width: 210px;
-    padding: 40px;
-    display: flex;
-    flex-direction: row;
+    width: 100%;
     color: #cb931b;
-    font-size: 1.7rem;
+    font-size: 1.2rem;
     font-weight: 200;
 }
 
@@ -68,25 +68,62 @@
     cursor:pointer;
 }
 
+.Account-title{
+    display: flex;
+    justify-content: center;
+    color: #cb931b;
+    font-size: 1.2rem;
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
 
+.Account-title:hover{
+    text-decoration: underline;
+    color: red;
+    cursor:pointer;
+}
+
+@media (max-width: 1011px){
+    .nav-div{
+        grid-template-columns: 30vw auto  20vw 20vw;
+    }
+    .Logout{
+        font-size: 1rem;
+    }
+    .Account-title{
+        font-size: 1rem;
+    }
+
+    .logo{
+        height: 100%;
+    }
+}
 
 
 @media (max-width: 375px){
-    .Logo{
-        display: flex;
-        flex-direction: row;
-        height: 40px;
-        width: 120px;
+
+    .nav-div{
+        grid-template-columns: 30vw auto 20vw 20vw;
+    }
+    
+    .logo{
+        height: 100%;
     }
 
     .Login{
+        grid-column-start: 4;
+        grid-column-end: 5;
         font-size: 1rem;
-        width: 30vw;
+        width: 100%;
     }
 
     .Logout{
         font-size: 1rem;
-        width: 41vw;
+        width: 100%
+    }
+
+    .Account-title{
+        font-size: 1rem;
     }
 
 

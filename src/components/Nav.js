@@ -1,7 +1,6 @@
 import React from 'react';
 import '../styles/Nav.css';
 import { useAuth0 } from '@auth0/auth0-react';
-import { FaLaptop } from 'react-icons/fa';
 import Logo from '../Assets/tonight-logo.png';
 
 const Nav = () => {
@@ -12,13 +11,14 @@ const Nav = () => {
       <img className="Logo" src={Logo} alt="logo" />
       {!isLoading && !user && (
         <button type="button" className="Login" onClick={loginWithRedirect}>
-          <FaLaptop /> Login
+          Login
         </button>
       )}
       {!isLoading && user && (
         <>
+          <p className="Account-title"> My Account </p>
           <button type="button" className="Logout" onClick={() => logout()}>
-            <FaLaptop /> Logout
+            Logout
           </button>
         </>
       )}
