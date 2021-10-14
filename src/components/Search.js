@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import '../styles/Search.css';
 import EventCards from './EventCards';
 
-const Search = ({ handleSearch, eventData, setSelect }) => {
+const Search = ({ handleSearch, eventData, setSelect, addFavorite }) => {
   const [searchValue, setSearchValue] = useState('');
-  const { isAuthenticated, user } = useAuth0();
+  const { isAuthenticated } = useAuth0();
 
   const handleInputChange = (event) => {
     setSearchValue(event.target.value);
@@ -49,12 +49,12 @@ const Search = ({ handleSearch, eventData, setSelect }) => {
             >
               WHATS ON?
             </button>
-            <p className="userName">Welcome: {user.nickname}</p>
           </form>
           <div className="event-container-master">
             {eventData.map((listing) => (
               <div className="event-container">
                 <EventCards
+                  addFavorite={addFavorite}
                   listing={listing.name}
                   image={
                     <img
@@ -93,5 +93,6 @@ Search.propTypes = {
     PropTypes.objectOf(PropTypes.number),
     PropTypes.objectOf(PropTypes.number)
   ]).isRequired,
-  setSelect: PropTypes.func.isRequired
+  setSelect: PropTypes.func.isRequired,
+  addFavorite: PropTypes.func.isRequired
 };

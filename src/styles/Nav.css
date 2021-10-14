@@ -10,16 +10,16 @@
 }
 
 .Logo{
-    object-fit: contain;
+    display: flex;
     grid-column-start: 1;
     grid-column-end: 2;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    height: 50%;
-    width: 100%;
-    margin: none;
-    padding: 5px;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    height: 60%;
+    padding: 10px;
+
+    
+
 
 }
 
@@ -75,6 +75,7 @@
     font-size: 1.2rem;
     grid-column-start: 3;
     grid-column-end: 4;
+    text-decoration: none;
 }
 
 .Account-title:hover{
@@ -94,8 +95,9 @@
         font-size: 1rem;
     }
 
-    .logo{
-        height: 100%;
+    .Logo{
+        height: 40%;
+        padding: 10px;
     }
 }
 
@@ -106,8 +108,10 @@
         grid-template-columns: 30vw auto 20vw 20vw;
     }
     
-    .logo{
-        height: 100%;
+    .Logo{
+        grid-column-start: 1;
+        grid-column-end: 2;
+       
     }
 
     .Login{

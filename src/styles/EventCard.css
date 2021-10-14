@@ -59,6 +59,18 @@
     color: white;
 }
 
+.Favorite{
+    font-size: 1rem;
+    font-family:monospace;
+    font-weight: 100;
+}
+
+.Favorite:hover{
+    color: red;
+    cursor: pointer;
+  
+}
+
 
 @media (max-width: 375px) {
     .eventCards{

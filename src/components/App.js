@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../styles/App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import LandingPage from './landing-page';
 import Nav from './Nav';
 import Search from './Search';
+import AccountPage from './AccountPage';
 
 function App() {
   const [eventData, setEventData] = useState([]);
   const [select, setSelect] = useState('');
+  const [favorites, setFavorites] = useState([]);
+
+  const addFavorite = (event) => {
+    const favoriteList = [...favorites, event];
+    setFavorites(favoriteList);
+  };
 
   const handleSearch = async (searchValue) => {
     if (select === 'Tonight') {
@@ -22,16 +30,26 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Nav />
-      <LandingPage />
-      <Search
-        handleSearch={handleSearch}
-        eventData={eventData}
-        select={select}
-        setSelect={setSelect}
-      />
-    </div>
+    <Router>
+      <div className="App">
+        <Nav />
+        <Switch>
+          <Route exact path="/">
+            <LandingPage />
+            <Search
+              handleSearch={handleSearch}
+              eventData={eventData}
+              select={select}
+              setSelect={setSelect}
+              addFavorite={addFavorite}
+            />
+          </Route>
+          <Route path="/account">
+            <AccountPage addFavorite={addFavorite} favorites={favorites} />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

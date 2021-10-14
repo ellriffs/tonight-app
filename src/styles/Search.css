@@ -29,7 +29,10 @@
         width: 10rem;
         text-align: center;
         margin: 20px;
+    }
 
+    .select-box:active{
+        cursor: pointer;
     }
 
 .submit{
@@ -48,6 +51,7 @@
 
 .submit:hover{
     opacity: 0.8;
+    cursor: pointer;
 }
 
 .userName{
