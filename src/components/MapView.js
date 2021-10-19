@@ -11,7 +11,7 @@ const containerStyle = {
 const MapView = ({ location, listing }) => {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: 'AIzaSyBpKOgwMtEawFSofGW2rbGBgA3krFg5-p0'
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY
   });
 
   const center = {

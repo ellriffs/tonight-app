@@ -1,4 +1,3 @@
-/* eslint-disable no-use-before-define */
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useAuth0 } from '@auth0/auth0-react';
@@ -10,7 +9,7 @@ const Search = ({ handleSearch, eventData, setSelect }) => {
   const [searchValue, setSearchValue] = useState('');
   const { isAuthenticated, getAccessTokenSilently } = useAuth0();
 
-  const addFavourite = async () => {
+  const addFavourite = async (actIdSource) => {
     try {
       const accessToken = await getAccessTokenSilently({
         audience: 'https://hmtq9bof5f.execute-api.eu-west-2.amazonaws.com'
@@ -20,17 +19,17 @@ const Search = ({ handleSearch, eventData, setSelect }) => {
         {
           // somehow get the actID from the ticketmaster API for the favourited act
 
-          actID: '2'
+          actID: actIdSource
         },
         {
           headers: {
             authorization: `Bearer ${accessToken}`
           }
-        },
-
-        // eslint-disable-next-line no-console
-        console.log(result)
+        }
       );
+
+      // eslint-disable-next-line no-console
+      console.log(result);
     } catch (err) {
       // eslint-disable-next-line no-console
       console.log(err);
@@ -85,6 +84,7 @@ const Search = ({ handleSearch, eventData, setSelect }) => {
                 <EventCards
                   addFavourite={addFavourite}
                   listing={listing.name}
+                  id={listing.id}
                   image={
                     <img
                       className="images"
