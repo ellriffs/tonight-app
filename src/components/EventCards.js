@@ -12,17 +12,13 @@ const EventCards = ({
   time,
   tickets,
   location,
-  addFavorite
+  addFavourite
 }) => {
   return (
     <div className="eventCards">
       <div className="eventCards_listing">{listing}</div>
-      <button
-        type="button"
-        onClick={() => addFavorite({ listing, venue, time, date })}
-        className="Favorite"
-      >
-        ♡ Highlight Event
+      <button type="button" onClick={() => addFavourite()} className="Favorite">
+        ♡ Favourite Event
       </button>
       <div className="eventCards_images">{image}</div>
       <div className="eventCards_venue">{venue}</div>
@@ -52,7 +48,7 @@ EventCards.propTypes = {
   tickets: PropTypes.string.isRequired,
   location: PropTypes.objectOf(PropTypes.number).isRequired,
   address: PropTypes.objectOf(PropTypes.string).isRequired,
-  addFavorite: PropTypes.func.isRequired
+  addFavourite: PropTypes.func.isRequired
 };
 
 export default EventCards;
