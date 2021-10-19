@@ -1,12 +1,40 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { useAuth0 } from '@auth0/auth0-react';
 import PropTypes from 'prop-types';
 import '../styles/Search.css';
 import EventCards from './EventCards';
 
-const Search = ({ handleSearch, eventData, setSelect, addFavorite }) => {
+const Search = ({ handleSearch, eventData, setSelect }) => {
   const [searchValue, setSearchValue] = useState('');
-  const { isAuthenticated } = useAuth0();
+  const { isAuthenticated, getAccessTokenSilently } = useAuth0();
+
+  const addFavourite = async (actIdSource) => {
+    try {
+      const accessToken = await getAccessTokenSilently({
+        audience: 'https://hmtq9bof5f.execute-api.eu-west-2.amazonaws.com'
+      });
+      const result = await axios.post(
+        'https://hmtq9bof5f.execute-api.eu-west-2.amazonaws.com/user',
+        {
+          // somehow get the actID from the ticketmaster API for the favourited act
+
+          actID: actIdSource
+        },
+        {
+          headers: {
+            authorization: `Bearer ${accessToken}`
+          }
+        }
+      );
+
+      // eslint-disable-next-line no-console
+      console.log(result);
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.log(err);
+    }
+  };
 
   const handleInputChange = (event) => {
     setSearchValue(event.target.value);
@@ -54,8 +82,9 @@ const Search = ({ handleSearch, eventData, setSelect, addFavorite }) => {
             {eventData.map((listing) => (
               <div className="event-container">
                 <EventCards
-                  addFavorite={addFavorite}
+                  addFavourite={addFavourite}
                   listing={listing.name}
+                  id={listing.id}
                   image={
                     <img
                       className="images"
@@ -93,6 +122,5 @@ Search.propTypes = {
     PropTypes.objectOf(PropTypes.number),
     PropTypes.objectOf(PropTypes.number)
   ]).isRequired,
-  setSelect: PropTypes.func.isRequired,
-  addFavorite: PropTypes.func.isRequired
+  setSelect: PropTypes.func.isRequired
 };

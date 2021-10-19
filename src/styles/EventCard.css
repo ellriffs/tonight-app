@@ -30,7 +30,6 @@
 }
 
 .eventCards_images{
-    border-radius: 30px;
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -63,9 +62,18 @@
     font-size: 1rem;
     font-family:monospace;
     font-weight: 100;
+    background-color: transparent;
+    border: none;
+    color: white;
 }
 
 .Favorite:hover{
+    color: red;
+    cursor: pointer;
+  
+}
+
+.Favorite:active{
     color: red;
     cursor: pointer;
   

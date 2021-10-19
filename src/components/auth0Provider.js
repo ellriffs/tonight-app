@@ -6,6 +6,7 @@ import { Auth0Provider } from '@auth0/auth0-react';
 const Auth0ProviderWithHistory = ({ children }) => {
   const domain = process.env.REACT_APP_AUTH0_DOMAIN;
   const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
+  const audience = 'https://hmtq9bof5f.execute-api.eu-west-2.amazonaws.com';
 
   const history = useHistory();
 
@@ -15,6 +16,7 @@ const Auth0ProviderWithHistory = ({ children }) => {
 
   return (
     <Auth0Provider
+      audience={audience}
       domain={domain}
       clientId={clientId}
       redirectUri={window.location.origin}
@@ -27,6 +29,6 @@ const Auth0ProviderWithHistory = ({ children }) => {
 
 export default Auth0ProviderWithHistory;
 
-Auth0ProviderWithHistory.propTypes={
+Auth0ProviderWithHistory.propTypes = {
   children: PropType.node.isRequired
-}
+};

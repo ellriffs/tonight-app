@@ -10,12 +10,6 @@ import AccountPage from './AccountPage';
 function App() {
   const [eventData, setEventData] = useState([]);
   const [select, setSelect] = useState('');
-  const [favorites, setFavorites] = useState([]);
-
-  const addFavorite = (event) => {
-    const favoriteList = [...favorites, event];
-    setFavorites(favoriteList);
-  };
 
   const handleSearch = async (searchValue) => {
     if (select === 'Tonight') {
@@ -41,11 +35,10 @@ function App() {
               eventData={eventData}
               select={select}
               setSelect={setSelect}
-              addFavorite={addFavorite}
             />
           </Route>
           <Route path="/account">
-            <AccountPage addFavorite={addFavorite} favorites={favorites} />
+            <AccountPage />
           </Route>
         </Switch>
       </div>
