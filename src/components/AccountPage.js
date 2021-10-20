@@ -14,6 +14,7 @@ const AccountPage = () => {
       });
       const result = await axios.get(
         'https://hmtq9bof5f.execute-api.eu-west-2.amazonaws.com/user',
+
         {
           headers: {
             authorization: `Bearer ${accessToken}`
@@ -47,14 +48,24 @@ const AccountPage = () => {
         <img className="user-image" src={user.picture} alt="user-avatar" />
       </div>
       {favourites && (
-        <div>
-          <h2>Favourite Acts</h2>
-          <ul>
-            {favourites.map((act) => {
-              return <li key={act.id}>{act.name}</li>;
-            })}
-          </ul>
-        </div>
+        <>
+          <div className="fetch-container">
+            <button className="fetch" type="button" onClick={fetchFavourites}>
+              Favourite Acts
+            </button>
+          </div>
+          <div className="fav-list">
+            <ul>
+              {favourites.map((act) => {
+                return (
+                  <>
+                    <li key={act.id}>{act.name}</li>
+                  </>
+                );
+              })}
+            </ul>
+          </div>
+        </>
       )}
     </div>
   );
